@@ -42,10 +42,36 @@ public class AddressService {
             address.setId(id);
             Address savedAddress = addressRepository.save(address);
             return ResponseEntity.ok(savedAddress);
-        } else {
-            return ResponseEntity.notFound().build();
         }
+//        else {
+            return ResponseEntity.notFound().build();
+//        }
     }
+
+
+//    public ResponseEntity<Address> updateAddress(Long id, Address address) {
+//        if (address == null) {
+//            return ResponseEntity.badRequest().build();
+//        }
+//
+//        Optional<Address> existingAddress = addressRepository.findById(id);
+//        if (existingAddress.isPresent()) {
+//            Address savedAddress = existingAddress.get();
+//            if (address.getId() == null || address.getId().equals(savedAddress.getId())) {
+//                savedAddress.setStreet(address.getStreet());
+//                savedAddress.setCity(address.getCity());
+//                savedAddress.setState(address.getState());
+//                savedAddress.setZipcode(address.getZipcode());
+//                addressRepository.save(savedAddress);
+//                return ResponseEntity.ok(savedAddress);
+//            } else {
+//                return ResponseEntity.badRequest().build();
+//            }
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
 
     public ResponseEntity<Void> deleteAddressById(Long id) {
         Optional<Address> address = addressRepository.findById(id);

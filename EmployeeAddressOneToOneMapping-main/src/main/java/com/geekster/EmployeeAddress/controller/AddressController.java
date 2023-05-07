@@ -32,7 +32,7 @@ public class AddressController {
         return addressService.AddAddress(address);
     }
 
-    @PutMapping(value = "/update/id")
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<Address> updateAddress(@PathVariable Long id,@RequestBody Address address){
         return addressService.updateAddress(id,address);
     }
